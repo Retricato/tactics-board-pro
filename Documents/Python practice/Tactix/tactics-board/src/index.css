@@ -1,0 +1,470 @@
+/* Reset basic margins and set a dark background for the whole app */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #111827; /* Dark slate */
+  color: #f3f4f6; /* Light gray text */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+/* The main container for our app */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.app-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* The Toolbar styling */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  background-color: #1f2937; /* Slightly lighter dark gray */
+  padding: 15px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Button styling */
+.btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  color: #111827;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-draw {
+  background-color: #fbbf24; /* Amber */
+}
+
+.btn-drag {
+  background-color: #e5e7eb; /* Light gray */
+}
+
+.btn-clear {
+  background-color: #4b5563; /* Gray */
+  color: white;
+}
+
+.btn-clear:hover {
+  background-color: #6b7280;
+}
+
+.btn-reset {
+  background-color: #ef4444; /* Red */
+  color: white;
+  margin-left: auto; /* Pushes the reset button to the far right */
+}
+
+.btn-reset:hover {
+  background-color: #dc2626;
+}
+
+/* Dropdown specific styling */
+.formation-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.team-label-red {
+  font-weight: bold;
+  color: #ef4444;
+}
+
+.team-label-blue {
+  font-weight: bold;
+  color: #3b82f6;
+}
+
+.formation-select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #4b5563;
+  background-color: #374151;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Pitch Container Shadow */
+.pitch-container {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  border: 4px solid #374151;
+}
+
+.btn-export {
+  background-color: #10b981; /* Emerald green */
+  color: white;
+}
+
+.btn-export:hover {
+  background-color: #059669;
+}
+
+/* Player Edit Panel */
+.edit-panel {
+  background-color: #374151;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  animation: fadeIn 0.2s ease-in-out;
+  border-left: 4px solid #fbbf24;
+}
+
+.edit-label {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.edit-input {
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #4b5563;
+  background-color: #1f2937;
+  color: white;
+  width: 150px;
+  outline: none;
+}
+
+.edit-input-number {
+  width: 60px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Drawing Tools Sub-menu */
+.drawing-tools {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #374151;
+  padding: 5px 15px;
+  border-radius: 6px;
+  border-left: 4px solid #fbbf24;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.tool-select {
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #4b5563;
+  background-color: #1f2937;
+  color: white;
+  font-size: 13px;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn-view {
+  background-color: #8b5cf6; /* Purple */
+  color: white;
+}
+
+.btn-view:hover {
+  background-color: #7c3aed;
+}
+
+/* Timeline Controls */
+.timeline-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background-color: #1f2937;
+  padding: 12px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  border-top: 4px solid #10b981;
+}
+
+.frame-counter {
+  font-weight: bold;
+  font-size: 16px;
+  color: #fbbf24;
+  min-width: 100px;
+  text-align: center;
+}
+
+.btn-timeline {
+  background-color: #4b5563;
+  color: white;
+}
+
+.btn-timeline:hover:not(:disabled) {
+  background-color: #6b7280;
+}
+
+.btn-play {
+  background-color: #8b5cf6;
+  color: white;
+  font-weight: bold;
+}
+
+.btn-play:hover:not(:disabled) {
+  background-color: #7c3aed;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-delete-frame {
+  background-color: #ef4444; /* Red */
+  color: white;
+}
+.btn-delete-frame:hover:not(:disabled) {
+  background-color: #dc2626;
+}
+
+.btn-video {
+  background-color: #ec4899; /* Pink */
+  color: white;
+}
+.btn-video:hover:not(:disabled) {
+  background-color: #db2777;
+}
+
+
+/* Scoreboard Editor */
+.score-panel {
+  display: flex;
+  background-color: #1f2937;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  gap: 15px;
+  align-items: flex-start; /* Aligns items to the top since textareas can grow */
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: center;
+  border-bottom: 4px solid #10b981;
+}
+
+.score-input {
+  width: 50px;
+  height: 38px;
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #4b5563;
+  background-color: #374151;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Upgraded to act as a proper multi-line textarea */
+.scorer-input {
+  width: 200px;
+  min-height: 42px; /* Fits about 2 lines by default */
+  padding: 8px 10px;
+  border-radius: 4px;
+  border: 1px solid #4b5563;
+  background-color: #374151;
+  color: white;
+  font-size: 13px;
+  font-family: inherit;
+  resize: vertical; /* Allows the user to drag the corner to make it bigger */
+  outline: none;
+  box-sizing: border-box;
+  white-space: pre-wrap;
+}
+
+/* --- ACCORDION UI --- */
+.accordion-header {
+  background-color: #1f2937;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  color: #f3f4f6;
+  align-items: center;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.accordion-header:hover {
+  background-color: #374151;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.accordion-body {
+  margin-bottom: 15px;
+  animation: slideDown 0.3s ease-out forwards;
+  transform-origin: top;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: scaleY(0.95); }
+  to { opacity: 1; transform: scaleY(1); }
+}
+
+/* --- CIRCULAR COLOR PICKER --- */
+.color-picker {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  background: transparent;
+  outline: none;
+}
+
+.color-picker::-webkit-color-swatch {
+  border: 2px solid #4b5563;
+  border-radius: 50%;
+}
+
+.color-picker::-moz-color-swatch {
+  border: 2px solid #4b5563;
+  border-radius: 50%;
+}
+
+/* --- TIMELINE SCRUBBER --- */
+.scrubber-container {
+  width: 100%;
+  padding: 15px 0 5px 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.scrubber-input {
+  flex: 1;
+  height: 6px;
+  background: #4b5563;
+  border-radius: 5px;
+  outline: none;
+}
+
+.scrubber-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #8b5cf6;
+  cursor: pointer;
+  transition: transform 0.1s;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.scrubber-input::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* --- DATABASE & SAVED TACTICS --- */
+.save-panel {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.tactic-name-input {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #4b5563;
+  background-color: #374151;
+  color: white;
+  font-size: 14px;
+  outline: none;
+}
+
+.btn-save {
+  background-color: #10b981; /* Emerald Green */
+  color: white;
+  font-weight: bold;
+}
+.btn-save:hover { background-color: #059669; }
+
+.saved-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.saved-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #374151;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border-left: 4px solid #8b5cf6;
+}
+
+.saved-item-name {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.saved-item-details {
+  color: #9ca3af;
+  font-size: 11px;
+  margin-top: 3px;
+}
+
+.btn-load {
+  background-color: #3b82f6;
+  color: white;
+  padding: 6px 12px;
+  font-size: 12px;
+}
+.btn-load:hover { background-color: #2563eb; }
